@@ -1,4 +1,11 @@
-﻿using System;
+﻿// File:        ServerEngine.cs
+// Authors:     Heli, Halvin, Kevin
+// Date:        2025-11-27
+// Description: Core TCP server responsible for handling 
+//              client connections, processing requests,
+//              and delegating message operations.
+
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;

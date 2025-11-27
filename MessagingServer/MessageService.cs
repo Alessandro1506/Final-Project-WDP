@@ -1,4 +1,12 @@
-﻿using System;
+﻿// File:        MessageService.cs
+// Authors:     Heli, Halvin, Kevin
+// Date:        2025-11-27
+// Description: Windows Service entry point for the
+//              messaging server. Starts and stops the
+//              ServerEngine component.
+ 
+
+using System;
 using System.ServiceProcess;
 
 namespace MessagingServer
@@ -19,7 +27,6 @@ namespace MessagingServer
             String logPath;
             Int32 port;
 
-            // Fully qualified name so there is no confusion about ConfigurationManager
             ipAddress = System.Configuration.ConfigurationManager.AppSettings["ServerIP"];
             portString = System.Configuration.ConfigurationManager.AppSettings["ServerPort"];
             logPath = System.Configuration.ConfigurationManager.AppSettings["LogFilePath"];

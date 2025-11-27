@@ -1,4 +1,11 @@
-﻿using System;
+﻿// File:        MessageProcessor.cs
+// Authors:     Heli, Halvin, Kevin
+// Date:        2025-11-27
+// Description: Handles message queuing, processing,
+//              storage, and retrieval for the messaging
+//              system.
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

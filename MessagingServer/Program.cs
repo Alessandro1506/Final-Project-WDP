@@ -1,4 +1,10 @@
-﻿using System.ServiceProcess;
+﻿// File:        Program.cs
+// Authors:     Heli, Halvin, Kevin
+// Date:        2025-11-27
+// Description: Application entry point for the Windows
+//              Service hosting the messaging server.
+
+using System.ServiceProcess;
 
 namespace MessagingServer
 {

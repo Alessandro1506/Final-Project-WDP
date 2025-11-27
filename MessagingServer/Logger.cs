@@ -1,4 +1,11 @@
-﻿using System;
+﻿// File:        Logger.cs
+// Authors:     Heli, Halvin, Kevin
+// Date:        2025-11-27
+// Description: Provides file-based logging for the
+//              messaging server. Writes timestamped 
+//              entries to a text file.
+
+using System;
 using System.IO;
 
 namespace MessagingServer
