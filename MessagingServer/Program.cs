@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿// File:        Program.cs
+// Authors:     Heli, Halvin, Kevin
+// Date:        2025-11-27
+// Description: Application entry point for the Windows
+//              Service hosting the messaging server.
+
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MessagingServer
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        static void Main()
+        private static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            ServiceBase[] servicesToRun;
+
+            servicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new MessageService()
             };
-            ServiceBase.Run(ServicesToRun);
+
+            ServiceBase.Run(servicesToRun);
+            return;
         }
     }
 }
