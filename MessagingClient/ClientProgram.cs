@@ -24,8 +24,8 @@ namespace MessagingClient
         // RETURNS     : (none)
         public ClientProgram(string serverIpAddress, int serverPortNumber)
         {
-            this.serverIp = serverIpAddress;
-            this.serverPort = serverPortNumber;
+            serverIp = serverIpAddress;
+            serverPort = serverPortNumber;
             return;
         }
 
@@ -55,7 +55,7 @@ namespace MessagingClient
             try
             {
                 client = new TcpClient();
-                client.Connect(this.serverIp, this.serverPort);
+                client.Connect(serverIp, serverPort);
 
                 networkStream = client.GetStream();
 
