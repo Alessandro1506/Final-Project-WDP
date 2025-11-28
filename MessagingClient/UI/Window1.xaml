@@ -32,7 +32,14 @@
              Width="80"
              Text=" 9000" />
             </StackPanel>
-
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="User name:"
+               VerticalAlignment="Center"
+               Margin="0,0,5,0" />
+                <TextBox x:Name="UserNameTextBox"
+             Width="150"
+             Text="Client1" />
+            </StackPanel>
             <TextBlock Text="Messages"
                        FontSize="17"
                        FontWeight="Bold"
@@ -64,7 +71,14 @@
                         Content="Send"
                         Width="80"
                         Click="SendButton_Click" />
+                <Button x:Name="ReceiveButton"
+                         Content="Check Messages"
+                          Width="120"
+                         Margin="5,0,0,0"
+                         Click="ReceiveButton_Click" />
+                
             </StackPanel>
+            
 
         </StackPanel>
 
