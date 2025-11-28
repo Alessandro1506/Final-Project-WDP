@@ -1,5 +1,5 @@
 ﻿//COURSE: PROG2510 WINDOWS DESKTOP PROGRAMMING
-//AUTHOR: HALVIN ALESSANDRO SILVA MAYES
+//AUTHOR: HALVIN, KEVIN, HELI
 //PROJECT: Final Project WDP
 //DESCRIPTION: Main window is for the messaging client. It handles
 //sending messages, showing chat history, and server IP and Port inputs.

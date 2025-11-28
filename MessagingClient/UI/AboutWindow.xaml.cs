@@ -1,5 +1,5 @@
 ﻿//COURSE: PROG2510 WINDOWS DESKTOP PROGRAMMING
-//AUTHOR: HALVIN ALESSANDRO SILVA MAYES
+//AUTHOR: HALVIN, KEVIN, HELI
 //PROJECT:FINAL PROJECT WDP
 //DESCRIPTION: About window that displays general information about
 //the project and the student team, with a simple Close button.
