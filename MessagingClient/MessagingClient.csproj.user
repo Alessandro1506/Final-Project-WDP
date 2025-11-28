@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\Window1.xaml.cs">
+    <Compile Update="UI\Window1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -9,12 +9,17 @@ MessagingClient
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+<<<<<<< HEAD
 C:\Users\kosne\OneDrive\Documents\GitHub\Final-Project-WDP\MessagingClient\App.xaml
 2-2144365576
+=======
+C:\Users\Alessandro Silva\source\repos\Final-Project-WDP\MessagingClient\App.xaml
+2-783028894
+>>>>>>> origin/UI-Halvin
 
-7-1489779121
+7-1842128531
 198-192518753
-Views\AboutWindow.xaml;Views\Window1.xaml;
+UI\AboutWindow.xaml;UI\Window1.xaml;
 
 False
 
