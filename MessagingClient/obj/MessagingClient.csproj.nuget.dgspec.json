@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alessandro Silva\\source\\repos\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj": {}
+    "C:\\Users\\kosne\\OneDrive\\Documents\\GitHub\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alessandro Silva\\source\\repos\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj": {
+    "C:\\Users\\kosne\\OneDrive\\Documents\\GitHub\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alessandro Silva\\source\\repos\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj",
+        "projectUniqueName": "C:\\Users\\kosne\\OneDrive\\Documents\\GitHub\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj",
         "projectName": "MessagingClient",
-        "projectPath": "C:\\Users\\Alessandro Silva\\source\\repos\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj",
-        "packagesPath": "C:\\Users\\Alessandro Silva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alessandro Silva\\source\\repos\\Final-Project-WDP\\MessagingClient\\obj\\",
+        "projectPath": "C:\\Users\\kosne\\OneDrive\\Documents\\GitHub\\Final-Project-WDP\\MessagingClient\\MessagingClient.csproj",
+        "packagesPath": "C:\\Users\\kosne\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kosne\\OneDrive\\Documents\\GitHub\\Final-Project-WDP\\MessagingClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alessandro Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kosne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
