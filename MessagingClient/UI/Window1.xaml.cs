@@ -5,19 +5,23 @@
 //sending messages, showing chat history, and server IP and Port inputs.
 
 using System;
+using System.Threading;
 using System.Windows;
 using MessagingClient;
-
-
 
 namespace MessagingClient.Views
 {
     public partial class Window1 : Window
     {
+        private bool keepPolling;
+        private Thread pollingThread;
 
         public Window1()
         {
             InitializeComponent();
+
+            keepPolling = true;
+            StartPollingThread();
         }
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
@@ -32,14 +36,14 @@ namespace MessagingClient.Views
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            // Here it close main window
-            this.Close();
+            // Here it closes the main window
+            Close();
             return;
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            //It reads the input values
+            // It reads the input values
             string targetUser;
             string messageText;
             bool isTargetEmpty;
@@ -58,14 +62,14 @@ namespace MessagingClient.Views
             }
             else
             {
-                // It build message and show it in the list
+                // It builds message and shows it in the list
                 string finalMessage;
                 finalMessage = "Me to " + targetUser + ": " + messageText;
 
                 MessagesListBox.Items.Add(finalMessage);
                 MessageTextBox.Clear();
 
-                // Call networking layer (to be implemented by teammate)
+                // Call networking layer
                 SendMessageToServer(targetUser, messageText);
             }
 
@@ -92,7 +96,7 @@ namespace MessagingClient.Views
             string ackMessage;
             string userName;
 
-            // Read server IP and Port from the UI textboxes.
+            // Read server IP, Port, and user name from the UI textboxes.
             serverIp = ServerIpTextBox.Text;
             portText = ServerPortTextBox.Text;
             userName = UserNameTextBox.Text;
@@ -103,6 +107,12 @@ namespace MessagingClient.Views
             if (string.IsNullOrWhiteSpace(serverIp) == true || isPortValid == false)
             {
                 MessageBox.Show("Please enter a valid server IP and Port.");
+                hasValidConfig = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(userName) == true)
+            {
+                MessageBox.Show("Please enter a user name.");
                 hasValidConfig = false;
             }
 
@@ -154,7 +164,7 @@ namespace MessagingClient.Views
             string timeStampText;
             string text;
             string displayLine;
-            string userName; 
+            string userName;
 
             serverIp = ServerIpTextBox.Text;
             portText = ServerPortTextBox.Text;
@@ -169,13 +179,18 @@ namespace MessagingClient.Views
                 hasValidConfig = false;
             }
 
+            if (string.IsNullOrWhiteSpace(userName) == true)
+            {
+                MessageBox.Show("Please enter a user name.");
+                hasValidConfig = false;
+            }
+
             if (hasValidConfig == true)
             {
                 client = new ClientProgram(serverIp, serverPort);
 
                 // The server expects: PULL|userName
                 request = "PULL|" + userName;
-
 
                 reply = client.SendAndReceive(request);
 
@@ -227,9 +242,64 @@ namespace MessagingClient.Views
 
         private void ReceiveButton_Click(object sender, RoutedEventArgs e)
         {
-            this.ReceiveMessagesFromServer();
+            ReceiveMessagesFromServer();
             return;
         }
 
+        // FUNCTION    : StartPollingThread
+        // DESCRIPTION : Creates and starts a background thread that periodically
+        //               polls the server for new messages.
+        // PARAMETERS  : (none)
+        // RETURNS     : void
+        private void StartPollingThread()
+        {
+            pollingThread = new Thread(PollMessagesLoop);
+            pollingThread.IsBackground = true;
+            pollingThread.Start();
+            return;
+        }
+
+        // FUNCTION    : PollMessagesLoop
+        // DESCRIPTION : Background thread loop that periodically calls
+        //               ReceiveMessagesFromServer using the UI dispatcher.
+        // PARAMETERS  : (none)
+        // RETURNS     : void
+        private void PollMessagesLoop()
+        {
+            while (keepPolling == true)
+            {
+                try
+                {
+                    // Marshal the call onto the UI thread so it can safely
+                    // access controls like the list box and textboxes.
+                    Dispatcher.Invoke(new Action(ReceiveMessagesFromServer));
+                }
+                catch
+                {
+                    // Ignore any errors during polling to keep the loop alive.
+                }
+
+                Thread.Sleep(5000);   // wait 5 seconds between polls
+            }
+
+            return;
+        }
+
+        // FUNCTION    : OnClosed
+        // DESCRIPTION : Stops the polling loop when the window is closed.
+        // PARAMETERS  : EventArgs e - Event arguments
+        // RETURNS     : void
+        protected override void OnClosed(EventArgs e)
+        {
+            keepPolling = false;
+
+            if (pollingThread != null && pollingThread.IsAlive == true)
+            {
+                pollingThread.Join(1000);
+            }
+
+            base.OnClosed(e);
+            return;
+        }
     }
 }
